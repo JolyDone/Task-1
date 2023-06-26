@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Util {
-    public static void main(String args[]) {
+    public void getConnection() {
         Connection c = null;
         try {
             Class.forName("org.postgresql.Driver");

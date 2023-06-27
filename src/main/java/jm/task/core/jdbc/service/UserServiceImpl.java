@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void removeUserById(long id) {
-
+        userDaoJDBC.removeUserById(id);
     }
 
     public List<User> getAllUsers() {
@@ -31,6 +31,6 @@ public class UserServiceImpl implements UserService {
     }
 
     public void cleanUsersTable() {
-
+        userDaoJDBC.cleanUsersTable();
     }
 }

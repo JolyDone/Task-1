@@ -15,10 +15,11 @@ public class UserDaoJDBCImpl implements UserDao {
     public void createUsersTable(){
         try(Statement statement = Util.getConnection().createStatement()){
             String command = "CREATE TABLE IF NOT EXISTS users_data " +
-                    "(id SERIAL PRIMARY KEY not NULL, " +
+                    "(id SERIAL not NULL, " +
                     " name VARCHAR(255), " +
                     " lastname VARCHAR(255), " +
-                    " age INT) ";
+                    " age INT, " +
+                    " PRIMARY KEY (id))";
             statement.executeUpdate(command);
             System.out.println("Таблица была создана.");
         } catch (Exception e) {

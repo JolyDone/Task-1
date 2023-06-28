@@ -33,4 +33,3 @@ public class Util {
         Util.connection = connection;
     }
 }
-// String command = "CREATE TABLE Users (id BIGINT PRIMARY KEY AUTO_INCREMENT, name CHAR, lastName char, age TINYINT)";

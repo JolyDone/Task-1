@@ -79,7 +79,6 @@ public class UserDaoHibernateImpl implements UserDao {
             session.getTransaction().commit();
 
             System.out.printf("User с id - %d удален из базы данных.\n", id);
-            System.out.printf("User с name - %s удален из базы данных.\n", user.getName());
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -98,6 +97,7 @@ public class UserDaoHibernateImpl implements UserDao {
             e.printStackTrace();
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
+        System.out.println("Получены все пользователи.");
         return userList;
     }
 

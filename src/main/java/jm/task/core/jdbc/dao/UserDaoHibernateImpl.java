@@ -19,6 +19,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void createUsersTable() {
+        Transaction transaction = null;
         try (Session session = Util.getSessionFactory().openSession()) {
             session.beginTransaction();
 
@@ -34,6 +35,9 @@ public class UserDaoHibernateImpl implements UserDao {
 
             System.out.println("Таблица успешно создана.");
         } catch (Exception e) {
+            if(transaction != null){
+                transaction.rollback();
+            }
             e.printStackTrace();
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
@@ -41,8 +45,9 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void dropUsersTable() {
+        Transaction transaction  = null;
         try (Session session = Util.getSessionFactory().openSession()) {
-            session.beginTransaction();
+            transaction = session.beginTransaction();
 
             String createTableSql = "DROP TABLE IF EXISTS users_data ";
 
@@ -51,6 +56,9 @@ public class UserDaoHibernateImpl implements UserDao {
 
             System.out.println("Таблица успешно удалена.");
         } catch (Exception e) {
+            if(transaction != null){
+                transaction.rollback();
+            }
             e.printStackTrace();
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }

@@ -21,7 +21,7 @@ public class UserDaoHibernateImpl implements UserDao {
     public void createUsersTable() {
         Transaction transaction = null;
         try (Session session = Util.getSessionFactory().openSession()) {
-            session.beginTransaction();
+            transaction = session.beginTransaction();
 
             String createTableSql = "CREATE TABLE IF NOT EXISTS users_data " +
                     "(id SERIAL not NULL, " +

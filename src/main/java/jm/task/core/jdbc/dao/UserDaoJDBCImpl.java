@@ -24,7 +24,6 @@ public class UserDaoJDBCImpl implements UserDao {
             System.out.println("Таблица была создана.");
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -34,7 +33,6 @@ public class UserDaoJDBCImpl implements UserDao {
             System.out.println("Таблица была удалена.");
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -50,7 +48,6 @@ public class UserDaoJDBCImpl implements UserDao {
             System.out.printf("User с именем - %s добавлен в базу данных.\n", name);
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -64,7 +61,6 @@ public class UserDaoJDBCImpl implements UserDao {
             System.out.printf("User с id: %d был удален.\n", id);
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -93,7 +89,6 @@ public class UserDaoJDBCImpl implements UserDao {
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
         return userList;
     }

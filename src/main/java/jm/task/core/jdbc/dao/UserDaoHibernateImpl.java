@@ -36,7 +36,6 @@ public class UserDaoHibernateImpl implements UserDao {
                 transaction.rollback();
             }
             e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -57,7 +56,6 @@ public class UserDaoHibernateImpl implements UserDao {
                 transaction.rollback();
             }
             e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -75,7 +73,6 @@ public class UserDaoHibernateImpl implements UserDao {
                 transaction.rollback();
             }
             e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -94,7 +91,6 @@ public class UserDaoHibernateImpl implements UserDao {
                 transaction.rollback();
             }
             e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -112,7 +108,6 @@ public class UserDaoHibernateImpl implements UserDao {
                 transaction.rollback();
             }
             e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
         System.out.println("Получены все пользователи.");
         return userList;
@@ -134,7 +129,6 @@ public class UserDaoHibernateImpl implements UserDao {
                 transaction.rollback();
             }
             e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
         System.out.println("Таблица успешно очищена.");
     }

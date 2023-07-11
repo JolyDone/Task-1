@@ -44,7 +44,6 @@ public class Util {
             try {
                 Configuration configuration = new Configuration();
 
-                // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, DRIVER);
                 settings.put(Environment.URL, DB_URL);

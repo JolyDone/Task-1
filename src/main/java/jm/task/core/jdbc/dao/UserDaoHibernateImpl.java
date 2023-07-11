@@ -28,7 +28,7 @@ public class UserDaoHibernateImpl implements UserDao {
                     " PRIMARY KEY (id))";
 
             session.createNativeQuery(createTableSql).executeUpdate();
-            session.getTransaction().commit();
+            transaction.commit();
 
             System.out.println("Таблица успешно создана.");
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class UserDaoHibernateImpl implements UserDao {
             String createTableSql = "DROP TABLE IF EXISTS users_data ";
 
             session.createNativeQuery(createTableSql).executeUpdate();
-            session.getTransaction().commit();
+            transaction.commit();
 
             System.out.println("Таблица успешно удалена.");
         } catch (Exception e) {
@@ -66,7 +66,7 @@ public class UserDaoHibernateImpl implements UserDao {
         try (Session session = Util.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             session.save(user);
-            session.getTransaction().commit();
+            transaction.commit();
             System.out.printf("User с именем - %s добавлен в базу данных.\n", name);
         } catch (Exception e) {
             if(transaction != null){
@@ -83,7 +83,7 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction = session.beginTransaction();
             User user = session.find(User.class, id);
             session.delete(user);
-            session.getTransaction().commit();
+            transaction.commit();
 
             System.out.printf("User с id - %d удален из базы данных.\n", id);
         } catch (Exception e) {
@@ -101,7 +101,7 @@ public class UserDaoHibernateImpl implements UserDao {
         try (Session session = Util.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             userList = session.createQuery("SELECT u FROM User u", User.class).getResultList();
-            session.getTransaction().commit();
+            transaction.commit();
 
         } catch (Exception e) {
             if(transaction != null){
@@ -122,7 +122,7 @@ public class UserDaoHibernateImpl implements UserDao {
             String createTableSql = "DELETE FROM user_data";
 
             session.createNativeQuery(createTableSql).executeUpdate();
-            session.getTransaction().commit();
+            transaction.commit();
 
         }catch (Exception e) {
             if(transaction != null){
